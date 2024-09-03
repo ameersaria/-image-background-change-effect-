@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Creating a div with class name "Container"  -->
+
+    <div class="container">
+        <!-- Creating another div  -->
+
+        <div class="img-box">
+            <img src="transparent.png" alt="" width="100%">
+
+            <div class="img-wrap">
+            <img src="original.jpg" alt="" id="originalImg">
+
+            <span id="line">
+                <img src="arrow.png" alt=""  class="arrow">
+            </span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Adding Javascript -->
+     <script>
+        let ImgBox=document.querySelector(".img-box");
+        let Imgwrap=document.querySelector(".img-wrap");
+        let OriginalImg=document.getElementById("originalImg")
+        let Line=document.getElementById("line")
+        
+
+        OriginalImg.style.width= ImgBox.offsetWidth + "px"
+
+        let leftSpace=ImgBox.offsetLeft;
+
+        ImgBox.onmousemove= function(e){
+            let boxWidth=(e.pageX - leftSpace)  +"px"
+            Imgwrap.style.width=boxWidth;
+
+            Line.style.left=boxWidth;
+        }
+     </script>
+</body>
+</html>
